@@ -7,18 +7,21 @@ export default {
 			name: "title",
 			type: "string",
 			title: "Title",
-			initialValue: "Metadata",
-			hidden: true,
 		},
 		{
-			name: "siteTitle",
-			type: "string",
-			title: "Title",
-		},
-		{
-			name: "siteDescription",
+			name: "description",
 			type: "text",
 			title: "Description",
+		},
+		{
+			name: "url",
+			type: "url",
+			title: "URL",
+		},
+		{
+			name: "baseUrl",
+			type: "string",
+			title: "Base URL",
 		},
 	],
 }
