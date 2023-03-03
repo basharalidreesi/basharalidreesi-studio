@@ -4,13 +4,6 @@ export default {
 	title: "Colours",
 	fields: [
 		{
-			name: "title",
-			type: "string",
-			title: "Title",
-			initialValue: "Colours",
-			hidden: true,
-		},
-		{
 			name: "textColour",
 			type: "object",
 			title: "Text Colour",
