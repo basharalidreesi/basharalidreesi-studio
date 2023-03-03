@@ -1,21 +1,21 @@
-import color from "./documents/color"
-import entry from "./documents/entry"
+// Documents
+import colours from "./documents/colours"
 import metadata from "./documents/metadata"
-import record from "./documents/record"
+import work from "./documents/work"
+import workType from "./documents/workType"
 
-import imageObject from "./objects/imageObject"
-import portableText from "./objects/portableText"
-import portableTextObject from "./objects/portableTextObject"
+// Objects
+import localisedString from "./objects/localisedString"
 
 export const schemaTypes = [
 
-	color,
+	// Documents
+	colours,
 	metadata,
-	entry,
-	record,
+	work,
+	workType,
 
-	imageObject,
-	portableText,
-	portableTextObject,
+	// Objects
+	localisedString,
 
 ]

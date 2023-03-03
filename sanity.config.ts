@@ -6,11 +6,12 @@ import { deskStructure } from "./deskStructure"
 import { documentNode } from "./documentNode"
 
 export default defineConfig({
-	name: 'default',
-	title: 'Bashar al-Idreesi',
 
-	projectId: 'mjz9thb6',
-	dataset: 'production',
+	name: "default",
+	title: "Bashar al-Idreesi",
+
+	projectId: "mjz9thb6",
+	dataset: "production",
 
 	plugins: [
 		deskTool({
@@ -23,4 +24,5 @@ export default defineConfig({
 	schema: {
 		types: schemaTypes,
 	},
+	
 })

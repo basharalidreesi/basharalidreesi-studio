@@ -1,27 +1,45 @@
-import { GearIcon, InfoIcon, NorthStarIcon, StackIcon, VersionsIcon } from "@primer/octicons-react"
-// import {orderableDocumentListDeskItem} from "@sanity/orderable-document-list"
+import { BookIcon, CogIcon, InfoOutlineIcon, LemonIcon, TagIcon } from "@sanity/icons"
 
 const hiddenDocumentTypes = listItem => ![
-	"color",
-	"entry",
+	"colours",
 	"metadata",
-	"record",
+	"work",
+	"workType",
 ].includes(listItem.getId())
 
-export const deskStructure = (S, context) =>
+export const deskStructure = (S) =>
 	S.list()
 		.title("Contents")
 		.items([
 			S.listItem()
+				.title("Catalogue")
+				.icon(BookIcon)
+				.child(
+					S.documentTypeList("work")
+						.title("Catalogue")
+						.menuItems([
+							S.orderingMenuItem({ title: "year (new → old)", by: [{ field: "year", direction: "desc" }] }),
+							S.orderingMenuItem({ title: "year (old → new)", by: [{ field: "year", direction: "asc" }] }),
+						])
+				),
+			S.listItem()
+				.title("Types")
+				.icon(TagIcon)
+				.child(
+					S.documentTypeList("workType")
+						.title("Types")
+				),
+			S.divider(),
+			S.listItem()
 				.title("Settings")
-				.icon(GearIcon)
+				.icon(CogIcon)
 				.child(
 					S.list()
 						.title("Settings")
 						.items([
 							S.listItem()
 								.title("Metadata")
-								.icon(InfoIcon)
+								.icon(InfoOutlineIcon)
 								.child(
 									S.document()
 										.schemaType("metadata")
@@ -29,35 +47,14 @@ export const deskStructure = (S, context) =>
 								),
 							S.listItem()
 								.title("Colours")
-								.icon(NorthStarIcon)
+								.icon(LemonIcon)
 								.child(
 									S.document()
-										.schemaType("color")
-										.documentId("color")
+										.schemaType("colours")
+										.documentId("colours")
 								),
 						])
 				),
 			S.divider(),
-			S.listItem()
-				.title("Entries")
-				.icon(StackIcon)
-				.child(
-					S.documentTypeList("entry")
-						.title("Entries")
-				),
-			// orderableDocumentListDeskItem({
-			// 	type: "record",
-			// 	title: "Records",
-			// 	icon: VersionsIcon,
-			// 	S,
-			// 	context,
-			// }),
-			S.listItem()
-				.title("Records")
-				.icon(VersionsIcon)
-				.child(
-					S.documentTypeList("record")
-						.title("Records")
-				),
 			...S.documentTypeListItems().filter(hiddenDocumentTypes)
 		])

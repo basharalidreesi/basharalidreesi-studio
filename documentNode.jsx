@@ -1,4 +1,4 @@
-import { CodeIcon, PencilIcon } from "@primer/octicons-react"
+import { CodeIcon, EditIcon } from "@sanity/icons"
 
 const jsonPreview = ({document}) => (
 	<>
@@ -8,6 +8,6 @@ const jsonPreview = ({document}) => (
 
 export const documentNode = (S) =>
 	S.document().views([
-		S.view.form().icon(() => <div><PencilIcon verticalAlign="baseline" /></div>),
-		S.view.component(jsonPreview).title("JSON").icon(() => <div><CodeIcon verticalAlign="baseline" /></div>)
+		S.view.form().icon(EditIcon),
+		S.view.component(jsonPreview).title("JSON").icon(CodeIcon),
 	])
