@@ -1,7 +1,8 @@
-import { BookIcon, CogIcon, InfoOutlineIcon, LemonIcon, TagIcon } from "@sanity/icons"
+import { BookIcon, CogIcon, HomeIcon, InfoOutlineIcon, LemonIcon, TagIcon } from "@sanity/icons"
 
 const hiddenDocumentTypes = listItem => ![
 	"colours",
+	"homepage",
 	"metadata",
 	"work",
 	"workType",
@@ -18,8 +19,8 @@ export const deskStructure = (S) =>
 					S.documentTypeList("work")
 						.title("Catalogue")
 						.menuItems([
-							S.orderingMenuItem({ title: "year (new → old)", by: [{ field: "year", direction: "desc" }] }),
-							S.orderingMenuItem({ title: "year (old → new)", by: [{ field: "year", direction: "asc" }] }),
+							S.orderingMenuItem({ title: "year (new → old)", by: [ { field: "year", direction: "desc" }, ]}),
+							S.orderingMenuItem({ title: "year (old → new)", by: [ { field: "year", direction: "asc" }, ]}),
 						])
 				),
 			S.listItem()
@@ -37,6 +38,14 @@ export const deskStructure = (S) =>
 					S.list()
 						.title("Settings")
 						.items([
+							S.listItem()
+								.title("Home")
+								.icon(HomeIcon)
+								.child(
+									S.document()
+										.schemaType("homepage")
+										.documentId("homepage")
+								),
 							S.listItem()
 								.title("Metadata")
 								.icon(InfoOutlineIcon)

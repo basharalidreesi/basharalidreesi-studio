@@ -24,6 +24,6 @@ export default {
 				title: Object.values(title).join(" / "),
 				media: TagIcon,
 			}
-		}
+		},
 	},
 }

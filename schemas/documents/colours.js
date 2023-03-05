@@ -7,6 +7,7 @@ export default {
 			name: "textColour",
 			type: "object",
 			title: "Text Colour",
+			description: "The hex code for this website's text colour.",
 			fields: [
 				{
 					name: "light",
@@ -24,6 +25,7 @@ export default {
 			name: "backgroundColour",
 			type: "object",
 			title: "Background Colour",
+			description: "The hex code for this website's background colour.",
 			fields: [
 				{
 					name: "light",
@@ -38,4 +40,11 @@ export default {
 			],
 		},
 	],
+	preview: {
+		prepare() {
+			return {
+				title: "Colours"
+			}
+		},
+	},
 }

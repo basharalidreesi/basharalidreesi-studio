@@ -94,6 +94,30 @@ export default {
 				],
 				storeOriginalFilename: false,
 			},
+			fields: [
+				{
+					name: "isExposed",
+					type: "boolean",
+					title: "Exposed?",
+					description: "Controls whether this image should be displayed within the catalogue.",
+					initialValue: false,
+					hidden: ({ document }) => document?.image?.asset ? false : true,
+				},
+				{
+					name: "width",
+					type: "number",
+					title: "Width",
+					description: "The % width of this image when exposed within the catalogue. The default width is 37.5%.",
+					hidden: ({ document }) => document?.image?.asset && document?.image?.isExposed ? false : true,
+				},
+				{
+					name: "Caption",
+					type: "portableText",
+					title: "Caption",
+					description: "The caption of this image.",
+					hidden: ({ document }) => document?.image?.asset ? false : true,
+				},
+			],
 		},
 	],
 	preview: {
