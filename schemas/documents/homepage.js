@@ -91,7 +91,7 @@ export default {
 							name: "selection",
 							type: "array",
 							title: "Selection",
-							description: "The works selected for featuring within this content block.",
+							description: "The selection of featured works to be presented within this content block.",
 							of: [
 								{
 									type: "reference",

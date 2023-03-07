@@ -1,4 +1,4 @@
-import { defaultLanguages, supportedLanguages } from "../../lib/supportedLanguages"
+import { defaultLanguages, supportedLanguages } from "../../lib/languages"
 import { DocumentTextIcon } from "@sanity/icons"
 
 export default {
@@ -128,7 +128,7 @@ export default {
 			year: "year",
 			locale: "locale",
 			translation: "translation",
-			image: "image",
+			image: "image.asset",
 		},
 		prepare(selection) {
 			const { displayLocale, title = [], type = [], year, locale, translation = [], image } = selection

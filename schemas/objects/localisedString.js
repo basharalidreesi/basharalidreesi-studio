@@ -1,5 +1,5 @@
-import { supportedLanguages } from "../../lib/supportedLanguages"
-import { rtlInput } from "../../components/rtlInput"
+import { supportedLanguages } from "../../lib/languages"
+import { rtlInput } from "../../components/input"
 
 export default {
 	name: "localisedString",

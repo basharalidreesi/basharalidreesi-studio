@@ -1,5 +1,5 @@
-import { defaultLanguages, supportedLanguages } from "../../lib/supportedLanguages"
-import { rtlInput } from "../../components/rtlInput"
+import { defaultLanguages, supportedLanguages } from "../../lib/languages"
+import { rtlInput } from "../../components/input"
 
 export default {
 	name: "limitedLocalisedString",

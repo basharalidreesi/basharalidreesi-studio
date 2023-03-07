@@ -1,4 +1,4 @@
-import { noInput } from "../../components/noInput"
+import { noInput } from "../../components/input"
 
 export default {
 	name: "message",
