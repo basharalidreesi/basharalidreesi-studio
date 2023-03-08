@@ -1,5 +1,6 @@
-import { DropIcon, LinkIcon } from "@sanity/icons"
-import { isolationDecorator, leftAlignedDecorator, normalDecorator, rightAlignedDecorator, centreAlignedDecorator, listDecorator, linkDecorator, } from "../../components/portableText"
+import { LinkIcon } from "@sanity/icons"
+import { normalDecorator, listDecorator, linkDecorator, languageDecorator } from "../../components/portableText"
+import { supportedLanguages } from "../../lib/languages"
 
 export default {
 	name: "portableText",
@@ -8,28 +9,15 @@ export default {
 	of: [
 		{
 			type: "block",
-			styles: [
-				{
-					title: "Normal",
-					value: "normal",
-					component: normalDecorator,
-				},
-				{
-					title: "Left-aligned",
-					value: "leftAligned",
-					component: leftAlignedDecorator,
-				},
-				{
-					title: "Right-aligned",
-					value: "rightAligned",
-					component: rightAlignedDecorator,
-				},
-				{
-					title: "Centred",
-					value: "centreAligned",
-					component: centreAlignedDecorator,
-				},
-			],
+			styles: supportedLanguages.map(lang => ({
+				title: lang.title,
+				value: lang.value == "en" ? "normal" : lang.value,
+				component: lang.value == "en" ? normalDecorator : languageDecorator,
+			})).concat(supportedLanguages.map(lang => ({
+				title: lang.title + " (switched)",
+				value: lang.value + "Switched",
+				component: languageDecorator,
+			}))),
 			lists: [
 				{
 					title: "Bullets",
@@ -59,12 +47,6 @@ export default {
 					{
 						title: "Strikethrough",
 						value: "strike-through",
-					},
-					{
-						title: "Isolation",
-						value: "isolation",
-						icon: DropIcon,
-						component: isolationDecorator,
 					},
 				],
 				annotations: [
